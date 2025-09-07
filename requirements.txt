@@ -11,3 +11,4 @@ joblib
 shap 
 streamlit
 requests
+xgboost

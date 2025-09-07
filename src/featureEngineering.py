@@ -35,14 +35,24 @@ def add_location_features(df):
 # -------------------------------
 # CAB / PRODUCT FEATURES
 # -------------------------------
+# -------------------------------
+# CAB / PRODUCT FEATURES
+# -------------------------------
 def add_cab_features(df):
     df = df.copy()
-    le = LabelEncoder()
-    df['cab_type_encoded'] = le.fit_transform(df['cab_type'].astype(str))
+    df['cab_type_encoded'] = df['cab_type'].astype('category').cat.codes
     df['surge_flag'] = (df['surge_multiplier'] > 1).astype(int)
-    # group products
-    df['product_group'] = df['name'].apply(lambda x: "Premium" if "Black" in str(x) else "Standard")
-    df['product_group_encoded']=le.fit_transform(df['product_group'].astype(str))
+    def categorize_product(name):
+        name = str(name).lower()
+        if "pool" in name or "shared" in name:
+            return "Shared"
+        elif "black" in name or "lux" in name:
+            return "Premium"
+        else:
+            return "Standard"
+    df['product_group'] = df['name'].apply(categorize_product)
+    PRODUCT_GROUP_MAP = {"Shared": 0, "Standard": 1, "Premium": 2}
+    df['product_group_encoded'] = df['product_group'].map(PRODUCT_GROUP_MAP)
     return df
 
 

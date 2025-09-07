@@ -15,5 +15,5 @@ def predict_dataframe(model, X: pd.DataFrame) -> np.ndarray:
     """
     y_pred = model.predict(X)
     # If your target during training was log_price, uncomment the next line:
-    # y_pred = np.expm1(y_pred)
+    y_pred = np.expm1(y_pred)
     return y_pred

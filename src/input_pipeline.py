@@ -9,9 +9,9 @@ CAB_TYPE_MAP = {
     "Lyft": 1,
 }
 PRODUCT_GROUP_MAP = {
-    "Standard": 0,
-    "Premium": 1,
-    "Shared": 2,
+    "Standard": 1,
+    "Premium": 2,
+    "Shared":0 ,
 }
 
 # The exact feature set (order matters) used at train time

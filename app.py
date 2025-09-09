@@ -52,7 +52,7 @@ model = load_model(MODEL_PATH)
 # -------------------------------
 col1, col2 = st.columns(2)
 with col1:
-    distance = st.number_input("Distance (km)", min_value=0.1, max_value=200.0, value=5.0, step=0.1)
+    distance = st.number_input("Distance (km)", min_value=0.1,  value=5.0, step=0.1)
     cab_type_label = st.selectbox("Cab Type", options=list(CAB_TYPE_MAP.keys()), index=0)
 with col2:
     product_group_label = st.selectbox("Product Group", options=list(PRODUCT_GROUP_MAP.keys()), index=0)

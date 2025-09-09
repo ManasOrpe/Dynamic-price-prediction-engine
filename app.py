@@ -64,7 +64,7 @@ dynamic = (mode == "Dynamic (randomized)")
 if st.button("Predict Fare"):
     # Build full 47-feature row
     X = create_features(
-        distance=distance,
+        distance=2*distance,
         cab_type_label=cab_type_label,
         product_group_label=product_group_label,
         surge_flag=surge_flag,

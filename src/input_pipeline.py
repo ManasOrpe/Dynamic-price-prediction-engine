@@ -8,7 +8,11 @@ CAB_TYPE_MAP = {
     "Uber": 0,
     "Lyft": 1,
 }
-
+PRODUCT_GROUP_MAP = {
+    "Standard": 1,
+    "Premium": 2,
+    "Shared":0 ,
+}
 
 # The exact feature set (order matters) used at train time
 FEATURE_COLUMNS = [
